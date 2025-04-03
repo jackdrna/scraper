@@ -10,7 +10,15 @@ import numpy as np
 # 3. In a loop, scrape each job posting for the job details
 # 4. Now within the Job details, save all bullet points (<li>)
 
-url = 'https://www.linkedin.com/jobs/search/?currentJobId=4199504245&geoId=90000084&keywords=engineer%20intern&origin=JOB_SEARCH_PAGE_SEARCH_BUTTON&refresh=true'
+base_url = 'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords='
+keywords = 'Engineer%2FIntern'
+location = 'San%20FFrancisco'
+start = 0
+
+url = base_url + keywords + '&location=' + location + '&start=' + str(start)
+
+# 'https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?
+# keywords=Engineer%2FIntern&location=San%20FFrancisco&start=25'
 
 # Send a GET request to the website
 response = requests.get(url)
